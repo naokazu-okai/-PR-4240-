@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1e7c0167a3.js" crossorigin="anonymous"></script>
+    <title>自己PR</title>
+    <style type="text/css">
+        /* ホームページのメイン */
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            overflow-x: hidden;
+        }
+
+        #main {
+            background-image: url("img/okai3.jpg");
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            padding: 8px;
+            margin-left: 0px;
+            z-index: 2;
+            overflow: auto;
+            box-sizing: border-box;
+            background-size: cover;
+        }
+
+        #menu {
+            background-color: black;
+            color: #fff;
+            border-style: solid;
+            border-color: white;
+            border-width: 5px;
+            border-left-color: black;
+            position: absolute;
+            top: 0;
+            left: -220px;
+            padding: 8px;
+            width: 210px;
+            min-height: 100%;
+            z-index: 999;
+            box-sizing: border-box;
+            transition: .4s;
+        }
+
+        li {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 50px;
+            text-align: center;
+        }
+
+        /* ボックス */
+        #box1 {
+            background-color: #000;
+            color: white;
+            width: 150px;
+            height: 80px;
+            top: 80px;
+            left: 300px;
+            line-height: 80px;
+            text-align: center;
+            border-top: solid 10px gray;
+            border-bottom: solid 10px gray;
+            position: absolute;
+            overflow: hidden;
+            opacity: .75;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        #box2 {
+            background-color: #000;
+            color: white;
+            width: 150px;
+            height: 80px;
+            top: 360px;
+            left: 300px;
+            line-height: 80px;
+            text-align: center;
+            border-top: solid 10px gray;
+            border-bottom: solid 10px gray;
+            position: absolute;
+            overflow: hidden;
+            opacity: .75;
+            cursor: pointer;
+            z-index: 4;
+        }
+
+        #box3 {
+            background-color: #000;
+            color: white;
+            width: 150px;
+            height: 80px;
+            top: 220px;
+            right: 300px;
+            line-height: 80px;
+            text-align: center;
+            position: absolute;
+            border-top: solid 10px gray;
+            border-bottom: solid 10px gray;
+            overflow: hidden;
+            opacity: .75;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        #box4 {
+            background-color: #000;
+            color: white;
+            width: 150px;
+            height: 80px;
+            top: 500px;
+            right: 300px;
+            line-height: 80px;
+            text-align: center;
+            position: absolute;
+            border-top: solid 10px gray;
+            border-bottom: solid 10px gray;
+            overflow: hidden;
+            opacity: .75;
+            cursor: pointer;
+            z-index: 6;
+        }
+
+        /* テキスト */
+        #text1 {
+            background-color: black;
+            color: white;
+            border-style: solid;
+            border-color: white;
+            border-width: 5px;
+            width: 90%;
+            height: 300px;
+            left: 5%;
+            padding: 8px;
+            position: absolute;
+            bottom: 50px;
+            display: none;
+            z-index: 7;
+        }
+
+        #text1-text {
+            color: white;
+            font-size: 25px;
+
+        }
+
+        #text1.text1-open {
+            display: block;
+        }
+
+        #text2 {
+            background-color: black;
+            color: white;
+            border-style: solid;
+            border-color: white;
+            border-width: 5px;
+            width: 90%;
+            height: 300px;
+            left: 5%;
+            padding: 8px;
+            position: absolute;
+            bottom: 50px;
+            display: none;
+            z-index: 7;
+        }
+
+        #text2-text {
+            color: white;
+            font-size: 25px;
+        }
+
+        #text2.text2-open {
+            display: block;
+        }
+
+        #text3 {
+            background-color: black;
+            color: white;
+            border-style: solid;
+            border-color: white;
+            border-width: 5px;
+            width: 90%;
+            height: 300px;
+            left: 5%;
+            padding: 8px;
+            position: absolute;
+            bottom: 50px;
+            display: none;
+            z-index: 7;
+        }
+
+        #text3-text {
+            color: white;
+            font-size: 25px;
+
+        }
+
+        #text3.text3-open {
+            display: block;
+        }
+
+        #text4 {
+            background-color: black;
+            color: white;
+            border-style: solid;
+            border-color: white;
+            border-width: 5px;
+            font-size: large;
+            width: 90%;
+            height: 300px;
+            left: 5%;
+            padding: 8px;
+            position: absolute;
+            bottom: 50px;
+            display: none;
+            z-index: 7;
+        }
+
+        #text4-text {
+            color: white;
+            font-size: 25px;
+        }
+
+        #text4.text4-open {
+            display: block;
+        }
+
+        /* メニューの動作 */
+        #open,
+        #close {
+            float: left;
+            cursor: pointer;
+        }
+
+        #home,
+        #target,
+        #career,
+        #merit,
+        #inquiry {
+            cursor: pointer;
+        }
+
+        #menu.menu-open {
+            left: 0;
+        }
+
+        /* メニュー：話す */
+        #bb {
+            background-image: url(img/background.jpg);
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            overflow: auto;
+            background-size: cover;
+            display: none;
+        }
+
+        #bb.target-open {
+            display: block;
+        }
+
+        #work {
+            background-color: yellowgreen;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            padding: 8px;
+            left: 150px;
+            top: 150px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        #work2 {
+            background-color: white;
+            width: 500px;
+            height: 80px;
+            line-height: 80px;
+            border-style: solid;
+            border-color: black;
+            border-radius: 10%;
+            left: 210px;
+            top: 150px;
+            padding: 8px;
+            position: absolute;
+            display: none;
+            text-align: center;
+            z-index: 1;
+        }
+
+        #work2.work2-open {
+            display: block;
+        }
+
+        #life {
+            background-color: tomato;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            padding: 8px;
+            left: 300px;
+            top: 350px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        #life2 {
+            background-color: white;
+            width: 500px;
+            height: 80px;
+            line-height: 80px;
+            border-style: solid;
+            border-color: black;
+            border-radius: 10%;
+            left: 360px;
+            top: 350px;
+            padding: 8px;
+            position: absolute;
+            display: none;
+            text-align: center;
+            z-index: 1;
+        }
+
+        #life2.life2-open {
+            display: block;
+        }
+
+        #hobby {
+            background-color: skyblue;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            padding: 8px;
+            left: 450px;
+            top: 550px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        #hobby2 {
+            background-color: white;
+            width: 500px;
+            height: 80px;
+            line-height: 80px;
+            border-style: solid;
+            border-color: black;
+            border-radius: 10%;
+            left: 510px;
+            top: 550px;
+            padding: 8px;
+            position: absolute;
+            display: none;
+            text-align: center;
+            z-index: 1;
+        }
+
+        #hobby2.hobby2-open {
+            display: block;
+        }
+
+        /* 経歴 */
+        #bb2 {
+            background-image: url(img/Background2.jpg);
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            overflow: auto;
+            background-size: cover;
+            display: none;
+        }
+
+        #bb2.career-open {
+            display: block;
+        }
+
+        #open3 {
+            color: white;
+            text-shadow: 1px 0 5px black;
+        }
+
+        #school img {
+            position: absolute;
+            height: 380px;
+            left: 180px;
+        }
+
+        #school-text {
+            top: 40px;
+            width: 500px;
+            height: 380px;
+            right: 150px;
+            text-shadow: 1px 0 5px black;
+            color: white;
+            position: absolute;
+            display: block;
+        }
+
+        .slide {
+            position: relative;
+            height: 380px;
+        }
+
+        .slide img {
+            right: 70px;
+            top: 400px;
+            position: absolute;
+            opacity: 0;
+            transition: all 1s ease-in-out;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #time {
+            position: absolute;
+            right: 390px;
+            top: 817px;
+            color: white;
+        }
+
+        #circle-text {
+            bottom: 40px;
+            width: 500px;
+            height: 380px;
+            left: 210px;
+            text-shadow: 1px 0 3px black;
+            color: white;
+            position: absolute;
+            display: block;
+        }
+
+        /* 長所・短所 */
+        #bb3 {
+            background-image: url(img/background3.jpg);
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            overflow: auto;
+            background-size: cover;
+            display: none;
+        }
+
+        #bb3.merit-open {
+            display: block;
+        }
+
+        #open4 {
+            color: white;
+            text-shadow: 1px 0 5px black;
+        }
+
+        #good img {
+            position: absolute;
+            height: 380px;
+            left: 100px;
+        }
+
+        #good-text {
+            top: 17px;
+            width: 450px;
+            height: 380px;
+            right: 300px;
+            text-shadow: 1px 0 5px black;
+            color: white;
+            position: absolute;
+            display: block;
+        }
+
+        #bad img {
+            position: absolute;
+            height: 380px;
+            left: 100px;
+            bottom: 20px;
+        }
+
+        #bad-text {
+            bottom: 30px;
+            width: 450px;
+            height: 380px;
+            right: 300px;
+            text-shadow: 1px 0 5px black;
+            color: white;
+            position: absolute;
+            display: block;
+        }
+
+        /* お問い合わせ */
+        #bb4 {
+            background-image: url(img/bill2.jpg);
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            overflow: auto;
+            background-size: cover;
+            display: none;
+        }
+
+        #bb4.inquiry-open {
+            display: block;
+        }
+
+        #my-address img {
+            position: absolute;
+            height: 300px;
+            left: 200px;
+        }
+
+        #my-address-text {
+            top: 25px;
+            width: 450px;
+            height: 380px;
+            left: 450px;
+            text-shadow: 1px 0 5px black;
+            color: white;
+            position: absolute;
+            display: block;
+        }
+
+        #map {
+            bottom: 20px;
+            right: 100px;
+            position: absolute;
+        }
+
+        #company-address-text {
+            bottom: 40px;
+            width: 450px;
+            height: 380px;
+            left: 250px;
+            text-shadow: 1px 0 5px black;
+            color: white;
+            position: absolute;
+            display: block;
+        }
+
+        #link {
+            background-color: yellow;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="menu">
+        <i class="fas fa-times" id="close"></i>
+        <ul>
+            <li id="home">ホーム</li>
+            <li id="target">目標</li>
+            <li id="career">経歴</li>
+            <li id="merit">長所・短所</li>
+            <li id="inquiry">お問い合わせ</li>
+        </ul>
+    </div>
+
+    <div id="main">
+        <i class="fas fa-bars fa-2x" id="open"></i>
+    </div>
+
+    <div id="box1">自己紹介</div>
+    <div id="box2">反省点</div>
+    <div id="box3">趣味1</div>
+    <div id="box4">趣味2</div>
+
+    <!-- <div id="cover"></div> -->
+
+    <div id="text1">
+        <i class="fas fa-times" id="close1"></i>
+        <div id="text1-text">
+            <p>オカイ「初めまして！「岡井 直胤」と申します！</p>
+            <p>　　　　フリガナは「オカイ　ナオカズ」です。</p>
+            <p>　　　　4月に　フォース株式会社に　入社しました。</p>
+            <p>　　　　まだ　研修という修行中の身ですが　よろしくお願いします。</p>
+        </div>
+    </div>
+
+    <div id="text2">
+        <i class="fas fa-times" id="close2"></i>
+        <div id="text2-text">
+            <p>オカイ「ホームページを 作るにあたっての反省点は いくつも挙げられますね。</p>
+            <p>　　　　特に　当初の予定になかった要素を 付け加えていった結果　コードが 多くなり</p>
+            <p>　　　　わかりずらいソースコードが 出来上がってしまった。</p>
+            <p>　　　　あとは　同名のコード名を何度も使用し　後ろに数字を振っただけの　コードを　多用してしまった。</p>
+        </div>
+    </div>
+
+    <div id="text3">
+        <i class="fas fa-times" id="close3"></i>
+        <div id="text3-text">
+            <p>オカイ「趣味は　旅行です。</p>
+            <p>　　　　最近は　コロナの影響で　旅に行けてないですが</p>
+            <p>　　　　よく　横須賀の猿島という　無人島を　船で乗っていき　散策したり</p>
+            <p>　　　　岩手県の陸前高田で　奇跡の一本松を　見に行ったりしました。</p>
+        </div>
+    </div>
+
+    <div id="text4">
+        <i class="fas fa-times" id="close4"></i>
+        <div id="text4-text">
+            <p>オカイ「もう一つの　趣味は　ゲームです。</p>
+            <p>　　　　最近は　「ファイナルファンタジー」の　オンラインゲームを　プレイしています！</p>
+            <p>　　　　他には　FPSやTPSと言った　プレイヤーと　銃で　戦うゲームも　プレイすることが　あります。</p>
+            <p>　　　　どれも　コンシューマーで　プレイしている為　お金を貯めて　PCで　早くプレイしたいです。</p>
+        </div>
+    </div>
+
+    <!-- メニュー：選択 -->
+    <div id="bb">
+        <i class="fas fa-bars fa-2x" id="open2"></i>
+        <h1>岡井 直胤の目標</h1>
+        <div id="work">仕事</div>
+        <div id="work2">まずは、プログラマーとしてプログラミング技術を極める。</div>
+        <div id="life">生活</div>
+        <div id="life2">朝のランニングで、5㎞を完走できるように走る。</div>
+        <div id="hobby">趣味</div>
+        <div id="hobby2">40万円を貯金をし、自作PCを購入する！</div>
+    </div>
+
+    <!--　経歴  -->
+    <div id="bb2">
+        <i class="fas fa-bars fa-2x" id="open3"></i>
+        <div id="school">
+            <img src="img/school.jpg" />
+        </div>
+
+        <div class="slide">
+            <img src="img/circle.jpg" />
+            <img src="img/circle3.jpg" />
+            <img src="img/circle7.jpg" />
+            <img src="img/circle2.jpg" />
+            <img src="img/circle5.jpg" />
+            <img src="img/circle4.jpg" />
+            <img src="img/circle6.jpg" />
+        </div>
+
+        <div id="time">
+            表示時間：<input type="range" id="slide_speed" value="2000" min="100" max="10000">
+        </div>
+
+        <div id="school-text">
+            <h2>大学は大正大学</h2>
+            <h3>学科は臨床心理学科</h3>
+            <p>大学で主に学んだのが臨床心理学科でした。</p>
+            <p>臨床心理は、心を治す・癒す学問です。</p>
+            <p>この学問を通して、人の心の相談事を聴けるようになったり、人の話を聞くのが得意になりました。</p>
+        </div>
+
+        <div id=circle-text>
+            <h2>旅行サークルに所属！</h2>
+            <h3>サークルで1年生担当の幹部</h3>
+            <p>所属をしていたサークルは旅をする「旅行サークル」でした。</p>
+            <p>月に1度のペースで鎌倉や横須賀、シーズンによっては花見やBQをしました。</p>
+            <p>私は、そのサークルで１年生の世話をする役職で、1年生のまとめ役を仰せつかってました。</p>
+            <p>例えば、1年生だけの旅行を計画し、その旅行を通じて1年生同士の仲を深めるという活動を行いました。</p>
+        </div>
+    </div>
+
+    <div id="bb3">
+        <i class="fas fa-bars fa-2x" id="open4"></i>
+        <div id="good">
+            <img src="img/4293901_s.jpg">
+        </div>
+
+        <div id="good-text">
+            <h2>長所</h2>
+            <p>・心理学部出身なので、心の相談事を受けるのが得意</p>
+            <p>・学部柄、人とコミュニケーションをして来たので、人並にコミュニケーションがとれる</p>
+            <h3>縁の下の力持ち</h3>
+            <p>・アルバイトで裏方の仕事をしていた経験上、準備や補助をしていた。</p>
+            <p>・課題や取り組みを行う際に、課題や取り組みで「簡単・便利」になると感じたものを＋αで付け加える事をする。</p>
+        </div>
+
+        <div id="bad">
+            <img src="img/4350180_m.jpg">
+        </div>
+
+        <div id="bad-text">
+            <h2>短所</h2>
+            <p>・人の助けになりたいと張りきり、余計なお世話をしてしまう事がある</p>
+            <p>・早とちりな行動を稀に起こしてしまう</p>
+            <p>・IT知識の不足</p>
+            <p>・社会人としてのマナーがおぼつかない</p>
+        </div>
+    </div>
+
+    <div id="bb4">
+        <i class="fas fa-bars fa-2x" id="open5"></i>
+        <div id="my-address">
+            <img src="img/mypicture2.jpg" />
+        </div>
+
+        <div id="my-address-text">
+            <p>氏名：岡井 直胤 (オカイ　ナオカズ）</p>
+            <p>mail：naokazu.okai@force-corp.co.jp</p>
+            <p>電話番号：080-9801-3527</p>
+            <p>郵便番号：〒338-0812</p>
+            <p>住所：埼玉県 さいたま市 桜区神田 395-8</p>
+        </div>
+
+        <iframe id="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.3322835502!2d139.7592142154804!3d35.69343988019154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c101f78fbc9%3A0x7456bde9c1eff400!2z44CSMTAxLTAwNTQg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy656We55Sw6Yym55S677yT5LiB55uu77yR77yY!5e0!3m2!1sja!2sjp!4v1620724311476!5m2!1sja!2sjp"
+            width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        <div id="company-address-text">
+            <p>会社名：フォース株式会社</p>
+            <p>電話番号：03-5259-5231</p>
+            <p>FAX：03-5259-5320</p>
+            <p>郵便番号：〒101-0054</p>
+            <p>住所：東京都千代田区神田錦町3丁目18番地寿ビル7F</p>
+            <a href="http://force-corp.co.jp/" id=link>フォースのページはここから！</a>
+        </div>
+    </div>
+
+    <script>
+        'use strict'
+
+        const box1 = document.getElementById('box1');
+        const box2 = document.getElementById('box2');
+        const box3 = document.getElementById('box3');
+        const box4 = document.getElementById('box4');
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+        const text3 = document.getElementById('text3');
+        const text4 = document.getElementById('text4');
+        const open = document.getElementById('open');
+        const open2 = document.getElementById('open2');
+        const open3 = document.getElementById('open3');
+        const open4 = document.getElementById('open4');
+        const open5 = document.getElementById('open5');
+        const menu = document.getElementById('menu');
+        const cover = document.getElementById('cover');
+        const close = document.getElementById('close');
+        const close1 = document.getElementById('close1');
+        const close2 = document.getElementById('close2');
+        const close3 = document.getElementById('close3');
+        const close4 = document.getElementById('close4');
+        const home = document.getElementById('home');
+        const tell = document.getElementById('target');
+        const career = document.getElementById('career');
+        const merit = document.getElementById('merit');
+        const inquiry = document.getElementById('inquiry');
+        const bb = document.getElementById('bb');
+        const bb2 = document.getElementById('bb2');
+        const bb3 = document.getElementById('bb3');
+        const bb4 = document.getElementById('bb4');
+        const work = document.getElementById('work');
+        const work2 = document.getElementById('work2');
+        const life = document.getElementById('life');
+        const life2 = document.getElementById('life2');
+        const hobby = document.getElementById('hobby');
+        const hobby2 = document.getElementById('hobby2');
+
+
+        // ーーーボックス１の開閉ーーー
+        box1.addEventListener('click', () => {
+            text1.className = 'text1-open';
+            text2.className = '';
+            text3.className = '';
+            text4.className = '';
+        });
+
+        close1.addEventListener('click', () => {
+            text1.className = '';
+        })
+
+        // ーーーボックス2の開閉ーーー
+        box2.addEventListener('click', () => {
+            text2.className = 'text2-open';
+            text1.className = '';
+            text3.className = '';
+            text4.className = '';
+        });
+
+        close2.addEventListener('click', () => {
+            text2.className = '';
+        })
+
+        // ーーーボックス3の開閉ーーー
+        box3.addEventListener('click', () => {
+            text3.className = 'text3-open';
+            text1.className = '';
+            text2.className = '';
+            text4.className = '';
+        });
+
+        close3.addEventListener('click', () => {
+            text3.className = '';
+        })
+
+        // ーーーボックス4の開閉ーーー
+        box4.addEventListener('click', () => {
+            text4.className = 'text4-open';
+            text1.className = '';
+            text2.className = '';
+            text3.className = '';
+        });
+
+        close4.addEventListener('click', () => {
+            text4.className = '';
+        })
+        // ーーーメニュー画面の開閉ーーー
+        open.addEventListener('click', () => {
+            menu.className = 'menu-open';
+        });
+
+        close.addEventListener('click', () => {
+            menu.className = '';
+        });
+
+        // ーーーメニューの「ホーム」画面の呼び出しーーー
+        home.addEventListener('click', () => {
+            bb.className = '';
+            bb2.className = '';
+            bb3.className = '';
+            bb4.className = '';
+        })
+
+        // ーーーメニューの「目標」画面の呼び出しーーー
+        target.addEventListener('click', () => {
+            if (bb2.className === 'career-open') {
+                bb.className = 'target-open';
+                bb2.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb.style.zIndex = 10;
+            } else if (bb3.className === 'merit-open') {
+                bb.className = 'target-open'
+                bb2.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb.style.zIndex = 10;
+            } else if (bb4.className === 'inquiry-open') {
+                bb.className = 'target-open'
+                bb2.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb.style.zIndex = 10;
+            } else {
+                bb.className = 'target-open';
+                bb.style.zIndex = 10;
+            }
+        });
+
+        // 「目標」画面のメニュー呼び出し
+        open2.addEventListener('click', () => {
+            menu.className = 'menu-open';
+        });
+
+        // ーーーメニューの「経歴」画面の呼び出しーーー
+        career.addEventListener('click', () => {
+            if (bb.className === 'target-open') {
+                bb2.className = 'career-open';
+                bb.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb2.style.zIndex = 10;
+            } else if (bb3.className === 'merit-open') {
+                bb2.className = 'career-open'
+                bb.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb2.style.zIndex = 10;
+            } else if (bb4.className === 'inquiry-open') {
+                bb2.className = 'career-open'
+                bb.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb2.style.zIndex = 10;
+            } else {
+                bb2.className = 'career-open';
+                bb2.style.zIndex = 10;
+            }
+        });
+
+        // 「経歴」画面のメニュー呼び出し
+        open3.addEventListener('click', () => {
+            menu.className = 'menu-open';
+        });
+
+        // ーーーメニューの「長所・短所」画面の呼び出しーーー
+        merit.addEventListener('click', () => {
+            if (bb.className === 'target-open') {
+                bb3.className = 'merit-open';
+                bb.style.zIndex = 9;
+                bb2.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb3.style.zIndex = 10;
+            } else if (bb2.className === 'career-open') {
+                bb3.className = 'merit-open';
+                bb.style.zIndex = 9;
+                bb2.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb3.style.zIndex = 10;
+            } else if (bb4.className === 'inquiry-open') {
+                bb3.className = 'merit-open';
+                bb.style.zIndex = 9;
+                bb2.style.zIndex = 9;
+                bb4.style.zIndex = 9;
+                bb3.style.zIndex = 10;
+            } else {
+                bb3.className = 'merit-open';
+                bb3.style.zIndex = 10;
+            }
+        });
+
+        // 「長所・短所」画面のメニュー呼び出し
+        open4.addEventListener('click', () => {
+            menu.className = 'menu-open';
+        });
+
+        // ーーーメニューの「お問い合わせ」画面の呼び出しーーー
+        inquiry.addEventListener('click', () => {
+            if (bb.className === 'target-open') {
+                bb4.className = 'inquiry-open';
+                bb.style.zIndex = 9;
+                bb2.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 10;
+            } else if (bb2.className === 'career-open') {
+                bb4.className = 'inquiry-open'
+                bb.style.zIndex = 9;
+                bb2.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 10;
+            } else if (bb3.className === 'merit-open') {
+                bb4.className = 'inquiry-open';
+                bb.style.zIndex = 9;
+                bb2.style.zIndex = 9;
+                bb3.style.zIndex = 9;
+                bb4.style.zIndex = 10;
+            } else {
+                bb4.className = 'inquiry-open';
+                bb4.style.zIndex = 10;
+            }
+        });
+
+        // 「長所・短所」画面のメニュー呼び出し
+        open5.addEventListener('click', () => {
+            menu.className = 'menu-open';
+        });
+
+        // ーーー「目標・仕事」ーーー
+        work.addEventListener('click', () => {
+            work2.className = 'work2-open';
+        });
+
+        // ーーー「目標・生活」ーーー
+        life.addEventListener('click', () => {
+            life2.className = 'life2-open';
+        });
+
+        // ーーー「目標・趣味」ーーー
+        hobby.addEventListener('click', () => {
+            hobby2.className = 'hobby2-open';
+        });
+
+        // ーーー「経歴」の画像スライドショー ーーー
+        window.addEventListener('load', function () {
+            viewSlide('.slide img');
+        });
+        function viewSlide(className, slideNo = -1) {
+            let imgArray = document.querySelectorAll(className);
+            if (slideNo >= 0) {
+                //初回以外は現在のスライドを消す
+                imgArray[slideNo].style.opacity = 0;
+            }
+            slideNo++;
+            if (slideNo >= imgArray.length) {
+                slideNo = 0; //次のスライドがなければ最初のスライドへ戻る
+            } imgArray[slideNo].style.opacity = 1;
+            let msec = document.getElementById('slide_speed').value;
+            setTimeout(function () { viewSlide(className, slideNo); }, msec);
+        }
+
+    </script>
+
+</body>
+
+</html>
